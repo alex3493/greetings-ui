@@ -25,6 +25,14 @@ const routes: Array<RouteRecordRaw> = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
     },
+    {
+        path: '/register',
+        name: 'register',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/RegistrationView.vue')
+    },
 ]
 
 const router = createRouter({
@@ -33,7 +41,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.name !== 'login' && !store.getters['user/isLoggedIn']) next({name: 'login'})
+    if (to.name !== 'login' && to.name !== 'register' && !store.getters['user/isLoggedIn']) next({name: 'login'})
+    else if ((to.name === 'login' || to.name === 'register') && store.getters['user/isLoggedIn']) next({name: 'home'})
+
     else next()
 })
 

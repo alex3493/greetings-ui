@@ -1,6 +1,6 @@
 import BackendService from "@/service/BackendService";
 import store from '@/store'
-import {UserProfileForm, UserUpdatePasswordForm} from "@/models/types";
+import {UserProfileForm, UserRegistrationForm, UserUpdatePasswordForm} from "@/models/types";
 
 export default class UserService {
     service: BackendService
@@ -9,12 +9,23 @@ export default class UserService {
         this.service = new BackendService()
     }
 
+    async register(registrationData: UserRegistrationForm): Promise<void> {
+        try {
+            const {data} = await this.service.post('/register', registrationData)
+
+            console.log('register response', data)
+        } catch (error) {
+            console.log('Error registering an account', error)
+            return Promise.reject(error)
+        }
+
+    }
+
     async logout(): Promise<void> {
         try {
             await this.service.post('/account/me/logout', {})
             this.service.removeSession()
             store.commit('user/setCurrentUser', undefined)
-            // await router.push('/login')
         } catch (error) {
             console.log('Error caught in logout view', error)
         } finally {
