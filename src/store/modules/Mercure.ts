@@ -17,12 +17,10 @@ const mercureModule: Module<MercureState, RootState> = {
     },
     mutations: {
         setHubUrl(state, authorizedUrl: AuthorizedHubUrl) {
-            console.log('setHubUrl mutation', state, authorizedUrl)
             state.urlString = authorizedUrl.url
             state.token = authorizedUrl.token
         },
         addSubscription(state, topic: string) {
-            console.log('addSubscription mutation', state, topic)
             if (!state.urlString || !state.token) {
                 console.log('DEBUG::ERROR - Add subscription should not be called before Mercure Hub access setup is complete')
                 return
@@ -48,7 +46,6 @@ const mercureModule: Module<MercureState, RootState> = {
             }
         },
         removeSubscription(state, topic: string) {
-            console.log('removeSubscription mutation', state, topic)
             const existingIndex = state.subscriptions.findIndex(s => s.topic === topic)
             if (existingIndex >= 0) {
                 state.subscriptions[existingIndex].eventSource?.close()
@@ -56,7 +53,6 @@ const mercureModule: Module<MercureState, RootState> = {
             }
         },
         addHandler(state, handler: MercureHandlerCallback) {
-            console.log('addHandler mutation', state, handler)
             const subscription = state.subscriptions.find(s => s.topic === handler.topic)
             if (subscription) {
                 subscription.eventSource.addEventListener('message', handler.callback)

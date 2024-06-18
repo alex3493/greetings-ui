@@ -36,7 +36,6 @@ const greetingModule: Module<GreetingsState, RootState> = {
     },
     mutations: {
         setGreetings(state, payload: GreetingModel[]): void {
-            console.log('setGreetings mutation', payload)
             state.greetings = payload.map(p => new GreetingModel(p))
         },
         addGreeting(state, payload: GreetingModel): void {

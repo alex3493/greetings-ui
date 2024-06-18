@@ -39,7 +39,7 @@ is not persisted anywhere. This is a pure demo feature for Pusher connectivity.
 1. Clone this repo
 2. cd to project root folder
 3. cp .env .env.local
-4. Set `VUE_APP_PUSHER_CLUSTER` and `VUE_APP_PUSHER_APP_KEY` env variables using your account data.
+4. Edit .env.local file: set `VUE_APP_PUSHER_CLUSTER` and `VUE_APP_PUSHER_APP_KEY` env variables using your account data.
 
 ### Docker (prod mode)
 
