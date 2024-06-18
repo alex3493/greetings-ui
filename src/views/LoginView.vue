@@ -18,6 +18,10 @@
               Login
             </button>
           </form>
+          <div class="mt-2">
+            Do not have an account?
+            <router-link to="/register">Register</router-link>
+          </div>
         </div>
         <div v-if="loginError" class="card-footer">
           <div class="alert alert-danger" role="alert">
