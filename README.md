@@ -1,4 +1,4 @@
-# symfony-vue
+# greetings-ui
 
 ## Project setup
 ```

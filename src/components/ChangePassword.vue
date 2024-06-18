@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import {ref} from "vue"
-import {useStore} from 'vuex'
 import {UserUpdatePasswordForm} from "@/models/types";
 import UserService from '@/service/UserService'
 
 import ValidationService from '@/service/ValidationService'
-
-const store = useStore()
 
 const service = new UserService()
 
