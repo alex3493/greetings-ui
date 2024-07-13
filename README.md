@@ -41,7 +41,7 @@ Dropdown menu with single "Log Out" item.
 ### Admin Greeting (only available to admin users)
 
 Send a greeting to all users currently viewing the application. This is a volatile message that
-is not persisted anywhere. This is a pure demo feature for Pusher connectivity.
+is not persisted anywhere. This is a pure demo of Pusher connectivity feature.
 
 ## How to install
 
@@ -49,6 +49,9 @@ is not persisted anywhere. This is a pure demo feature for Pusher connectivity.
 2. cd to project root folder
 3. cp .env .env.local
 4. Edit .env.local file: set `VUE_APP_PUSHER_CLUSTER` and `VUE_APP_PUSHER_APP_KEY` env variables using your account data.
+
+### *** IMPORTANT *** API is configured to accept https requests and uses self-signed SSL certificate.
+**Do not forget** to visit https://symfony.test and accept browser security warning, otherwise all requests to API with fail.
 
 ### Docker (prod mode)
 
