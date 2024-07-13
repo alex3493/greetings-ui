@@ -5,6 +5,15 @@ This is front-end Vue 3 application for testing Symfony API [project](https://gi
 This application uses web-sockets to listen to **Pusher** events set from API. You have to
 provide your own Pusher account data in configuration (see step 4 in installation).
 
+This application requires user login. You can log in using pre-seeded admin user credentials:
+
+- email: admin@greetings.com
+- password: password
+
+You can also register a new user in UI following "register" link in login form. Note, that UI registration
+always creates regular users (ROLE_USER). If you need more admin users you can create them in API console (
+See [API project documentation](https://github.com/alex3493/greetings-api/blob/main/Readme.md))
+
 ## Menu structure
 
 ### Greetings (home page)
@@ -20,7 +29,7 @@ This view shows current user profile, allows update user first / last names and 
 
 If current user has logged in from a mobile app before, this list of his registered mobile devices
 is also displayed. See [API project documentation](https://github.com/alex3493/greetings-api/blob/main/Readme.md) on how to create user
-mobile app logins in Swagger Docs.
+mobile app logins in Swagger API Docs.
 
 Then user can log out from single device or log out from all devices (sign out). **Note: this action doesn't affect
 current user WEB account.**
