@@ -12,6 +12,7 @@ let INTERCEPTORS_LOADING_ENABLED: boolean
 export default class BackendService {
     constructor() {
         axios.defaults.baseURL = process.env.VUE_APP_API_URL || ''
+        axios.defaults.headers.common['Accept'] = 'application/json'
 
         if (this.isLoggedIn()) {
             this.setAuthHeader()
